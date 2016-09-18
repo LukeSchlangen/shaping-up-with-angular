@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Shaping Up With Angular</title>
-  <link src="/vendors/bootstrap.min.css"></link>
+  <link rel="stylesheet" href="/vendors/bootstrap.min.css"></link>
 </head>
-<body ng-controller="StoreController as store">
-  <div ng-repeat="product in store.products" ng-hide="product.soldOut">
+<body class="container" ng-controller="StoreController as store">
+  <div class="product row" ng-repeat="product in store.products" ng-hide="product.soldOut">
     <!-- Expessions like {{5 + 5}} are how we get angular values displayed within the page -->
     <h1>{{product.name}}</h1>
     <h2>The price is ${{product.price}}</h2>
