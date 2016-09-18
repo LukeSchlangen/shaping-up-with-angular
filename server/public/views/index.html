@@ -5,15 +5,12 @@
   <title>Shaping Up With Angular</title>
   <link src="/vendors/bootstrap.min.css"></link>
 </head>
-<body>
-  <div>
-    Dependencies have been added!
-    That's a huge {{ 5+5 }} out of 10!
-  </div>
-  <div ng-controller="StoreController as store">
+<body ng-controller="StoreController as store">
+  <div ng-hide="store.product.soldOut">
     <h1>{{store.product.name}}</h1>
     <h2>The price is ${{store.product.price}}</h2>
     <p>{{store.product.description}}</p>
+    <button ng-show="store.product.canPurchase"> Add to Cart </button>
   </div>
   <script src="/vendors/angular.min.js"></script>
   <script src="/scripts/client.js"></script>

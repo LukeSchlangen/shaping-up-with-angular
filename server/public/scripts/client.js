@@ -8,6 +8,8 @@
   var gem = {
     name: 'Ruby',
     price: 2.95,
-    description: 'This is a red gem!'
+    description: 'This is a red gem!',
+    canPurchase: true,
+    soldOut: false
   }
 })();
