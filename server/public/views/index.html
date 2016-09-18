@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Directives like ng-app and ng-controller are annotations that trigger javascript behaviors -->
 <html ng-app="StoreApp">
 <head>
   <meta charset="utf-8">
@@ -7,6 +8,7 @@
 </head>
 <body ng-controller="StoreController as store">
   <div ng-repeat="product in store.products" ng-hide="product.soldOut">
+    <!-- Expessions like {{5 + 5}} are how we get angular values displayed within the page -->
     <h1>{{product.name}}</h1>
     <h2>The price is ${{product.price}}</h2>
     <p>{{product.description}}</p>

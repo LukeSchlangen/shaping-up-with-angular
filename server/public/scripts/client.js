@@ -1,4 +1,5 @@
 (function(){
+  // modules are where our application components live
   var storeApp = angular.module('StoreApp', [ ])
   // controllers are where we define our apps behavior by adding functions and values
   storeApp.controller('StoreController', function(){
