@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html ng-app="store">
-  <head>
-    <meta charset="utf-8">
-    <title>Shaping Up With Angular</title>
-    <link src="/vendors/bootstrap.min.css"></link>
-  </head>
-  <body>
+<html ng-app="StoreApp">
+<head>
+  <meta charset="utf-8">
+  <title>Shaping Up With Angular</title>
+  <link src="/vendors/bootstrap.min.css"></link>
+</head>
+<body>
+  <div>
     Dependencies have been added!
     That's a huge {{ 5+5 }} out of 10!
-    <script src="/vendors/angular.min.js"></script>
-    <script src="/scripts/client.js"></script>
-  </body>
+  </div>
+  <div ng-controller="StoreController as store">
+    <h1>{{store.product.name}}</h1>
+    <h2>The price is ${{store.product.price}}</h2>
+    <p>{{store.product.description}}</p>
+  </div>
+  <script src="/vendors/angular.min.js"></script>
+  <script src="/scripts/client.js"></script>
+</body>
 </html>
