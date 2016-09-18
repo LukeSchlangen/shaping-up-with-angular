@@ -6,11 +6,11 @@
   <link src="/vendors/bootstrap.min.css"></link>
 </head>
 <body ng-controller="StoreController as store">
-  <div ng-hide="store.product.soldOut">
-    <h1>{{store.product.name}}</h1>
-    <h2>The price is ${{store.product.price}}</h2>
-    <p>{{store.product.description}}</p>
-    <button ng-show="store.product.canPurchase"> Add to Cart </button>
+  <div ng-repeat="product in store.products" ng-hide="product.soldOut">
+    <h1>{{product.name}}</h1>
+    <h2>The price is ${{product.price}}</h2>
+    <p>{{product.description}}</p>
+    <button ng-show="product.canPurchase"> Add to Cart </button>
   </div>
   <script src="/vendors/angular.min.js"></script>
   <script src="/scripts/client.js"></script>
