@@ -12,7 +12,7 @@
     "url": "https://github.com/LukeSchlangen/shaping-up-with-angular.git"
   },
   "author": "Luke Schlangen",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
