@@ -11,7 +11,17 @@
     <!-- Expessions like {{5 + 5}} are how we get angular values displayed within the page -->
     <h1>{{product.name}}</h1>
     <h2>The price is {{ product.price | currency }}</h2>
-    <img ng-src="{{product.images[0].full}}"
+    <!-- Image Gallery  -->
+      <div class="gallery">
+        <div class="img-wrap">
+          <img ng-src="{{product.images[0].full}}" />
+        </div>
+        <ul class="img-thumbnails clearfix">
+          <li ng-repeat="image in product.images" class="small-image pull-left thumbnail" >
+            <img ng-src="{{image.thumb}}" width="100px"/>
+          </li>
+        </ul>
+      </div>
     <p>{{product.description}}</p>
     <button ng-show="product.canPurchase"> Add to Cart </button>
   </div>
