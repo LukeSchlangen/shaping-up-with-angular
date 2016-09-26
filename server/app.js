@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var path = require('path');
 
-app.set("port", 5000);
+var port = process.env.PORT || 5000;
+
+app.set("port", port);
 
 app.get("/*", function(req,res){
     console.log("We have requested ", req.params[0]);
