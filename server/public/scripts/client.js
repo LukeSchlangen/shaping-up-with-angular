@@ -8,23 +8,66 @@
 
   var gems = [{
     name: 'Ruby',
-    price: 2.95,
+    price: 2,
     description: 'This is a red gem!',
-    canPurchase: true,
-    soldOut: false
-  },
-  {
-    name: 'Saphire',
-    price: 5.95,
-    description: 'This is a blue gem!',
-    canPurchase: false,
-    soldOut: false
-  },
-  {
-    name: 'Emerald',
-    price: 12.95,
-    description: 'This is a green gem!',
-    canPurchase: true,
-    soldOut: true
-  }];
-})();
+    images: [
+      {
+        full: '../images/gem-01.gif',
+        thumb: '../images/gem-01.gif'
+      },
+      {
+        full: '../images/gem-02.gif',
+        thumb: '../images/gem-02.gif'
+      },
+      {
+        full: '../images/gem-03.gif',
+        thumb: '../images/gem-03.gif'
+      },
+      {
+        full: '../images/gem-04.gif',
+        thumb: '../images/gem-04.gif'
+      }],
+      canPurchase: true,
+      soldOut: false
+    },
+    {
+      name: 'Saphire',
+      price: 5.95,
+      description: 'This is a blue gem!',
+      images: [
+        {
+          full: '../images/gem-05.gif',
+          thumb: '../images/gem-05.gif'
+        },
+        {
+          full: '../images/gem-06.gif',
+          thumb: '../images/gem-06.gif'
+        },
+        {
+          full: '../images/gem-07.gif',
+          thumb: '../images/gem-07.gif'
+        }],
+        canPurchase: false,
+        soldOut: false
+      },
+      {
+        name: 'Emerald',
+        price: 12.95,
+        description: 'This is a green gem!',
+        images: [
+          {
+            full: '../images/gem-07.gif',
+            thumb: '../images/gem-07.gif'
+          },
+          {
+            full: '../images/gem-08.gif',
+            thumb: '../images/gem-08.gif'
+          },
+          {
+            full: '../images/gem-09.gif',
+            thumb: '../images/gem-09.gif'
+          }],
+          canPurchase: true,
+          soldOut: true
+        }];
+      })();
