@@ -12,17 +12,36 @@
     <h1>{{product.name}}</h1>
     <h2>The price is {{ product.price | currency }}</h2>
     <!-- Image Gallery  -->
-      <div class="gallery">
-        <div class="img-wrap">
-          <img ng-src="{{product.images[0].full}}" />
-        </div>
-        <ul class="img-thumbnails clearfix">
-          <li ng-repeat="image in product.images" class="small-image pull-left thumbnail" >
-            <img ng-src="{{image.thumb}}" width="100px"/>
-          </li>
-        </ul>
+    <div class="gallery">
+      <div class="img-wrap">
+        <img ng-src="{{product.images[0].full}}" />
       </div>
-    <p>{{product.description}}</p>
+      <ul class="img-thumbnails clearfix">
+        <li ng-repeat="image in product.images" class="small-image pull-left thumbnail" >
+          <img ng-src="{{image.thumb}}" width="100px"/>
+        </li>
+      </ul>
+    </div>
+    <section>
+      <ul class="nav nav-pills">
+        <li><a ng-click="tab = 'description'">Description</a></li>
+        <li><a ng-click="tab = 'specifications'">Specifications</a></li>
+        <li><a ng-click="tab = 'reviews'">Reviews</a></li>
+      </ul>
+      <div class="panel" ng-show="tab === 'description'">
+        <h4>Description</h4>
+        <p>{{product.description}}</p>
+      </div>
+      <div class="panel" ng-show="tab === 'specifications'">
+        <h4>Specifications</h4>
+        <p>No specifications yet</p>
+      </div>
+      <div class="panel" ng-show="tab === 'reviews'">
+        <h4>Reviews</h4>
+        <p>No reviews yet</p>
+      </div>
+    </section>
+    <!-- <p>{{product.description}}</p> -->
     <button ng-show="product.canPurchase"> Add to Cart </button>
   </div>
   <script src="/vendors/angular.min.js"></script>
