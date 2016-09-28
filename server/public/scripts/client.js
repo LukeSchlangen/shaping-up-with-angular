@@ -1,9 +1,21 @@
 (function(){
   // modules are where our application components live
-  var storeApp = angular.module('StoreApp', [ ])
+  var storeApp = angular.module('StoreApp', [ ]);
   // controllers are where we define our apps behavior by adding functions and values
   storeApp.controller('StoreController', function(){
     this.products = gems;
+  });
+
+  storeApp.controller('PanelController', function(){
+    this.selectedTab = 1;
+    this.setTab = function(setTab){
+      console.log('tab is set to:', setTab);
+      this.selectedTab = setTab;
+    };
+    this.isTabSelected = function(tab){
+      console.log('Checking to see if ', this.selectedTab, ' === ', tab, 'it is: ', this.selectedTab === tab);
+      return this.selectedTab === tab;
+    }
   });
 
   var gems = [{

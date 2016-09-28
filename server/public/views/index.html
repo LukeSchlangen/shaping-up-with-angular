@@ -22,21 +22,21 @@
         </li>
       </ul>
     </div>
-    <section>
+    <section ng-controller="PanelController as panel">
       <ul class="nav nav-pills">
-        <li><a ng-click="tab = 'description'">Description</a></li>
-        <li><a ng-click="tab = 'specifications'">Specifications</a></li>
-        <li><a ng-click="tab = 'reviews'">Reviews</a></li>
+        <li ng-class="{active:panel.isTabSelected('description')}"><a ng-click="panel.setTab('description')">Description</a></li>
+        <li ng-class="{active:panel.isTabSelected('specifications')}"><a ng-click="panel.setTab('specifications')">Specifications</a></li>
+        <li ng-class="{active:panel.isTabSelected('reviews')}"><a ng-click="panel.setTab('reviews')">Reviews</a></li>
       </ul>
-      <div class="panel" ng-show="tab === 'description'">
+      <div class="panel" ng-show="panel.isTabSelected('description')">
         <h4>Description</h4>
         <p>{{product.description}}</p>
       </div>
-      <div class="panel" ng-show="tab === 'specifications'">
+      <div class="panel" ng-show="panel.isTabSelected('specifications')">
         <h4>Specifications</h4>
         <p>No specifications yet</p>
       </div>
-      <div class="panel" ng-show="tab === 'reviews'">
+      <div class="panel" ng-show="panel.isTabSelected('reviews')">
         <h4>Reviews</h4>
         <p>No reviews yet</p>
       </div>
