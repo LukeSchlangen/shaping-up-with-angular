@@ -9,6 +9,7 @@
   storeApp.controller('GalleryController', function(){
     this.selectedImage = 0;
     this.setSelectedImage = function(imageNumber){
+      console.log('Changing to image number: ',imageNumber);
       if(imageNumber){
         this.selectedImage = imageNumber;
       }else{
@@ -24,7 +25,7 @@
       this.selectedTab = setTab;
     };
     this.isTabSelected = function(tab){
-      console.log('Checking to see if ', this.selectedTab, ' === ', tab, 'it is: ', this.selectedTab === tab);
+      // console.log('Checking to see if ', this.selectedTab, ' === ', tab, 'it is: ', this.selectedTab === tab);
       return this.selectedTab === tab;
     }
   });

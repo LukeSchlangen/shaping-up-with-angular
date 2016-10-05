@@ -17,7 +17,7 @@
         <img ng-src="{{product.images[gallery.selectedImage].full}}" />
       </div>
       <ul class="img-thumbnails clearfix">
-        <li ng-repeat="image in product.images" class="small-image pull-left thumbnail" ng-click="setSelectedImage($index)">
+        <li ng-repeat="image in product.images" class="small-image pull-left thumbnail" ng-click="gallery.setSelectedImage($index)">
           <img ng-src="{{image.thumb}}" width="100px"/>
         </li>
       </ul>
