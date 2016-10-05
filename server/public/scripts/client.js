@@ -18,7 +18,7 @@
   });
 
   storeApp.controller('PanelController', function(){
-    this.selectedTab = 1;
+    this.selectedTab = 'description';
     this.setTab = function(setTab){
       console.log('tab is set to:', setTab);
       this.selectedTab = setTab;
