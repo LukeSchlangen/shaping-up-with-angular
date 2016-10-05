@@ -6,6 +6,17 @@
     this.products = gems;
   });
 
+  storeApp.controller('GalleryController', function(){
+    this.selectedImage = 0;
+    this.setSelectedImage = function(imageNumber){
+      if(imageNumber){
+        this.selectedImage = imageNumber;
+      }else{
+        this.selectedImage = 0;
+      }
+    }
+  });
+
   storeApp.controller('PanelController', function(){
     this.selectedTab = 1;
     this.setTab = function(setTab){
@@ -21,6 +32,7 @@
   var gems = [{
     name: 'Ruby',
     price: 2,
+    shine: 1,
     description: 'This is a red gem!',
     images: [
       {
@@ -39,12 +51,30 @@
         full: '../images/gem-04.gif',
         thumb: '../images/gem-04.gif'
       }],
+      reviews: [
+        {
+          stars: 2,
+          body: "Good but not great.",
+          author: "jon@mail.com"
+        },
+        {
+          stars: 5,
+          body: "So Amazing!",
+          author: "tina@mail.com"
+        },
+        {
+          stars: 4,
+          body: "What shine!",
+          author: "laura@mail.com"
+        }
+      ],
       canPurchase: true,
       soldOut: false
     },
     {
       name: 'Saphire',
       price: 5.95,
+      shine: 1,
       description: 'This is a blue gem!',
       images: [
         {
@@ -59,12 +89,30 @@
           full: '../images/gem-07.gif',
           thumb: '../images/gem-07.gif'
         }],
+        reviews: [
+          {
+            stars: 2,
+            body: "Good but not great.",
+            author: "jon@mail.com"
+          },
+          {
+            stars: 5,
+            body: "So Amazing!",
+            author: "tina@mail.com"
+          },
+          {
+            stars: 4,
+            body: "What shine!",
+            author: "laura@mail.com"
+          }
+        ],
         canPurchase: false,
         soldOut: false
       },
       {
         name: 'Emerald',
         price: 12.95,
+        shine: 1,
         description: 'This is a green gem!',
         images: [
           {
@@ -79,6 +127,23 @@
             full: '../images/gem-09.gif',
             thumb: '../images/gem-09.gif'
           }],
+          reviews: [
+            {
+              stars: 2,
+              body: "Good but not great.",
+              author: "jon@mail.com"
+            },
+            {
+              stars: 5,
+              body: "So Amazing!",
+              author: "tina@mail.com"
+            },
+            {
+              stars: 4,
+              body: "What shine!",
+              author: "laura@mail.com"
+            }
+          ],
           canPurchase: true,
           soldOut: true
         }];

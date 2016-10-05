@@ -12,12 +12,12 @@
     <h1>{{product.name}}</h1>
     <h2>The price is {{ product.price | currency }}</h2>
     <!-- Image Gallery  -->
-    <div class="gallery">
+    <div class="gallery" ng-controller="GalleryController as gallery">
       <div class="img-wrap">
-        <img ng-src="{{product.images[0].full}}" />
+        <img ng-src="{{product.images[gallery.selectedImage].full}}" />
       </div>
       <ul class="img-thumbnails clearfix">
-        <li ng-repeat="image in product.images" class="small-image pull-left thumbnail" >
+        <li ng-repeat="image in product.images" class="small-image pull-left thumbnail" ng-click="setSelectedImage($index)">
           <img ng-src="{{image.thumb}}" width="100px"/>
         </li>
       </ul>
@@ -34,11 +34,16 @@
       </div>
       <div class="panel" ng-show="panel.isTabSelected('specifications')">
         <h4>Specifications</h4>
-        <p>No specifications yet</p>
+        <p>Shine: {{product.shine}}</p>
       </div>
       <div class="panel" ng-show="panel.isTabSelected('reviews')">
         <h4>Reviews</h4>
         <p>No reviews yet</p>
+        <blockquote ng-repeat="review in product.reviews">
+          <b>Stars: {{review.stars}}</b>
+          {{review.body}}
+          <cite>by: {{review.author}}</cite>
+        </blockquote>
       </div>
     </section>
     <!-- <p>{{product.description}}</p> -->
