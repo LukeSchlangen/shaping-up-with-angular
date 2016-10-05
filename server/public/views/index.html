@@ -44,15 +44,15 @@
           {{review.body}}
           <cite>by: {{review.author}}</cite>
         </blockquote>
-        <blockquote ng-show="review.stars || review.body || review.author">
-          <b>Stars: {{review.stars}}</b>
-          {{review.body}}
-          <cite>by: {{review.author}}</cite>
+        <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+        <blockquote ng-show="reviewCtrl.review.stars || reviewCtrl.review.body || reviewCtrl.review.author">
+          <b>Stars: {{reviewCtrl.review.stars}}</b>
+          {{reviewCtrl.review.body}}
+          <cite>by: {{reviewCtrl.review.author}}</cite>
         </blockquote>
-        <form name="reviewForm">
           <div class="form-group">
             <label for="stars">Stars</label>
-            <select name="stars" class="form-control" ng-model="review.stars">
+            <select name="stars" class="form-control" ng-model="reviewCtrl.review.stars">
               <option value='1'>1 Star</option>
               <option value='2'>2 Stars</option>
               <option value='3'>3 Stars</option>
@@ -62,11 +62,11 @@
           </div>
           <div class="form-group">
             <label for="body">Your Review</label>
-            <textarea name="body" class="form-control" ng-model="review.body"></textarea>
+            <textarea name="body" class="form-control" ng-model="reviewCtrl.review.body"></textarea>
           </div>
           <div class="form-group">
             <label for="author">Email</label>
-            <input type="email" name="author" class="form-control" ng-model="review.author"/>
+            <input type="email" name="author" class="form-control" ng-model="reviewCtrl.review.author"/>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
