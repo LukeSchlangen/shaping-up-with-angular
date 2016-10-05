@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="/vendors/bootstrap.min.css"></link>
 </head>
 <body class="container" ng-controller="StoreController as store">
-  <div class="product row" ng-repeat="product in store.products" ng-hide="product.soldOut">
+  <div class="container col-md-6" ng-repeat="product in store.products" ng-hide="product.soldOut">
     <!-- Expessions like {{5 + 5}} are how we get angular values displayed within the page -->
+    <h2 class="pull-right">{{ product.price | currency }}</h2>
     <h1>{{product.name}}</h1>
-    <h2>The price is {{ product.price | currency }}</h2>
     <!-- Image Gallery  -->
     <div class="gallery" ng-controller="GalleryController as gallery">
       <div class="img-wrap">
@@ -38,16 +38,38 @@
       </div>
       <div class="panel" ng-show="panel.isTabSelected('reviews')">
         <h4>Reviews</h4>
-        <p>No reviews yet</p>
+        <p ng-hide="product.reviews.length">No reviews yet</p>
         <blockquote ng-repeat="review in product.reviews">
           <b>Stars: {{review.stars}}</b>
           {{review.body}}
           <cite>by: {{review.author}}</cite>
         </blockquote>
+        <form name="reviewForm">
+          <div class="form-group">
+            <label for="stars">Stars</label>
+            <select name="stars" class="form-control">
+              <option value='1'>1 Star</option>
+              <option value='2'>2 Stars</option>
+              <option value='3'>3 Stars</option>
+              <option value='4'>4 Stars</option>
+              <option value='5'>5 Stars</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="body">Your Review</label>
+            <textarea name="body" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="author">Email</label>
+            <input type="email" name="author" class="form-control"/>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </section>
     <!-- <p>{{product.description}}</p> -->
-    <button ng-show="product.canPurchase"> Add to Cart </button>
+    <button ng-disabled="!product.canPurchase" class="btn btn-primary"> Add to Cart </button>
+    <span ng-hide="product.canPurchase">This product is sold out.</span>
   </div>
   <script src="/vendors/angular.min.js"></script>
   <script src="/scripts/client.js"></script>
