@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Shaping Up With Angular</title>
   <link rel="stylesheet" href="/vendors/bootstrap.min.css"></link>
+  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title">
 </head>
 <body class="container" ng-controller="StoreController as store">
   <div class="container col-md-6" ng-repeat="product in store.products" ng-hide="product.soldOut">
@@ -44,7 +45,7 @@
           {{review.body}}
           <cite>by: {{review.author}}</cite>
         </blockquote>
-        <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+        <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product, reviewForm)">
         <blockquote ng-show="reviewCtrl.review.stars || reviewCtrl.review.body || reviewCtrl.review.author">
           <b>Stars: {{reviewCtrl.review.stars}}</b>
           {{reviewCtrl.review.body}}
@@ -52,7 +53,7 @@
         </blockquote>
           <div class="form-group">
             <label for="stars">Stars</label>
-            <select name="stars" class="form-control" ng-model="reviewCtrl.review.stars">
+            <select name="stars" class="form-control" ng-model="reviewCtrl.review.stars" required>
               <option value='1'>1 Star</option>
               <option value='2'>2 Stars</option>
               <option value='3'>3 Stars</option>
@@ -62,13 +63,14 @@
           </div>
           <div class="form-group">
             <label for="body">Your Review</label>
-            <textarea name="body" class="form-control" ng-model="reviewCtrl.review.body"></textarea>
+            <textarea name="body" class="form-control" ng-model="reviewCtrl.review.body" required></textarea>
           </div>
           <div class="form-group">
             <label for="author">Email</label>
-            <input type="email" name="author" class="form-control" ng-model="reviewCtrl.review.author"/>
+            <input type="email" name="author" class="form-control" ng-model="reviewCtrl.review.author" required/>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" ng-disabled="!reviewForm.$valid" class="btn btn-primary">Submit</button>
+          <div ng-hide="reviewForm.$valid">Review form is not valid</div>
         </form>
       </div>
     </section>

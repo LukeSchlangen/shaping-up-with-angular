@@ -32,9 +32,10 @@
 
   storeApp.controller('ReviewController', function(){
     this.review = {};
-    this.addReview = function(product){
+    this.addReview = function(product, reviewForm){
       product.reviews.push(this.review);
       this.review = {};
+      reviewForm.$setPristine()
     };
   });
 
