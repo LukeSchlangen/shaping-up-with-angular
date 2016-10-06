@@ -10,8 +10,7 @@
 <body class="container" ng-controller="StoreController as store">
   <div class="container col-md-6" ng-repeat="product in store.products" ng-hide="product.soldOut">
     <!-- Expessions like {{5 + 5}} are how we get angular values displayed within the page -->
-    <h2 class="pull-right">{{ product.price | currency }}</h2>
-    <h1>{{product.name}}</h1>
+    <h3 ng-include="'views/product-title.html'"></h3>
     <!-- Image Gallery  -->
     <div class="gallery" ng-controller="GalleryController as gallery">
       <div class="img-wrap">
@@ -74,7 +73,6 @@
         </form>
       </div>
     </section>
-    <!-- <p>{{product.description}}</p> -->
     <button ng-disabled="!product.canPurchase" class="btn btn-primary"> Add to Cart </button>
     <span ng-hide="product.canPurchase">This product is sold out.</span>
   </div>
