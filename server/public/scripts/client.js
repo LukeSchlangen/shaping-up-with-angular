@@ -33,6 +33,7 @@
   storeApp.controller('ReviewController', function(){
     this.review = {};
     this.addReview = function(product, reviewForm){
+      this.review.createdOn = Date.now();
       product.reviews.push(this.review);
       this.review = {};
       reviewForm.$setPristine()
@@ -65,17 +66,20 @@
         {
           stars: 2,
           body: "Good but not great.",
-          author: "jon@mail.com"
+          author: "jon@mail.com",
+          createdOn: new Date(1475766970611)
         },
         {
           stars: 5,
           body: "So Amazing!",
-          author: "tina@mail.com"
+          author: "tina@mail.com",
+          createdOn: new Date(1475766970611)
         },
         {
           stars: 4,
           body: "What shine!",
-          author: "laura@mail.com"
+          author: "laura@mail.com",
+          createdOn: new Date(1475766970611)
         }
       ],
       canPurchase: true,
@@ -103,17 +107,20 @@
           {
             stars: 2,
             body: "Good but not great.",
-            author: "jon@mail.com"
+            author: "jon@mail.com",
+            createdOn: new Date(1475766970611)
           },
           {
             stars: 5,
             body: "So Amazing!",
-            author: "tina@mail.com"
+            author: "tina@mail.com",
+            createdOn: new Date(1475766970611)
           },
           {
             stars: 4,
             body: "What shine!",
-            author: "laura@mail.com"
+            author: "laura@mail.com",
+            createdOn: new Date(1475766970611)
           }
         ],
         canPurchase: false,
@@ -141,17 +148,20 @@
             {
               stars: 2,
               body: "Good but not great.",
-              author: "jon@mail.com"
+              author: "jon@mail.com",
+              createdOn: new Date(1475766970611)
             },
             {
               stars: 5,
               body: "So Amazing!",
-              author: "tina@mail.com"
+              author: "tina@mail.com",
+              createdOn: new Date(1475766970611)
             },
             {
               stars: 4,
               body: "What shine!",
-              author: "laura@mail.com"
+              author: "laura@mail.com",
+              createdOn: new Date(1475766970611)
             }
           ],
           canPurchase: true,
