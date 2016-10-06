@@ -1,0 +1,36 @@
+<div class="panel">
+  <h4>Reviews</h4>
+  <p ng-hide="product.reviews.length">No reviews yet</p>
+  <blockquote ng-repeat="review in product.reviews">
+    <b>Stars: {{review.stars}}</b>
+    {{review.body}}
+    <cite>by: {{review.author}} on {{review.createdOn | date}}</cite>
+  </blockquote>
+  <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product, reviewForm)">
+  <blockquote ng-show="reviewCtrl.review.stars || reviewCtrl.review.body || reviewCtrl.review.author">
+    <b>Stars: {{reviewCtrl.review.stars}}</b>
+    {{reviewCtrl.review.body}}
+    <cite>by: {{reviewCtrl.review.author}}</cite>
+  </blockquote>
+    <div class="form-group">
+      <label for="stars">Stars</label>
+      <select name="stars" class="form-control" ng-model="reviewCtrl.review.stars" required>
+        <option value='1'>1 Star</option>
+        <option value='2'>2 Stars</option>
+        <option value='3'>3 Stars</option>
+        <option value='4'>4 Stars</option>
+        <option value='5'>5 Stars</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="body">Your Review</label>
+      <textarea name="body" class="form-control" ng-model="reviewCtrl.review.body" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="author">Email</label>
+      <input type="email" name="author" class="form-control" ng-model="reviewCtrl.review.author" required/>
+    </div>
+    <button type="submit" ng-disabled="!reviewForm.$valid" class="btn btn-primary">Submit</button>
+    <div ng-hide="reviewForm.$valid">Review form is not valid</div>
+  </form>
+</div>

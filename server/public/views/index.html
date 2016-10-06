@@ -10,7 +10,7 @@
 <body class="container" ng-controller="StoreController as store">
   <div class="container col-md-6" ng-repeat="product in store.products" ng-hide="product.soldOut">
     <!-- Expessions like {{5 + 5}} are how we get angular values displayed within the page -->
-    <h3 ng-include="'views/product-title.html'"></h3>
+    <product-title></product-title>
     <!-- Image Gallery  -->
     <div class="gallery" ng-controller="GalleryController as gallery">
       <div class="img-wrap">
@@ -28,50 +28,9 @@
         <li ng-class="{active:panel.isTabSelected('specifications')}"><a ng-click="panel.setTab('specifications')">Specifications</a></li>
         <li ng-class="{active:panel.isTabSelected('reviews')}"><a ng-click="panel.setTab('reviews')">Reviews</a></li>
       </ul>
-      <div class="panel" ng-show="panel.isTabSelected('description')">
-        <h4>Description</h4>
-        <p>{{product.description}}</p>
-      </div>
-      <div class="panel" ng-show="panel.isTabSelected('specifications')">
-        <h4>Specifications</h4>
-        <p>Shine: {{product.shine}}</p>
-      </div>
-      <div class="panel" ng-show="panel.isTabSelected('reviews')">
-        <h4>Reviews</h4>
-        <p ng-hide="product.reviews.length">No reviews yet</p>
-        <blockquote ng-repeat="review in product.reviews">
-          <b>Stars: {{review.stars}}</b>
-          {{review.body}}
-          <cite>by: {{review.author}} on {{review.createdOn | date}}</cite>
-        </blockquote>
-        <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product, reviewForm)">
-        <blockquote ng-show="reviewCtrl.review.stars || reviewCtrl.review.body || reviewCtrl.review.author">
-          <b>Stars: {{reviewCtrl.review.stars}}</b>
-          {{reviewCtrl.review.body}}
-          <cite>by: {{reviewCtrl.review.author}}</cite>
-        </blockquote>
-          <div class="form-group">
-            <label for="stars">Stars</label>
-            <select name="stars" class="form-control" ng-model="reviewCtrl.review.stars" required>
-              <option value='1'>1 Star</option>
-              <option value='2'>2 Stars</option>
-              <option value='3'>3 Stars</option>
-              <option value='4'>4 Stars</option>
-              <option value='5'>5 Stars</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="body">Your Review</label>
-            <textarea name="body" class="form-control" ng-model="reviewCtrl.review.body" required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="author">Email</label>
-            <input type="email" name="author" class="form-control" ng-model="reviewCtrl.review.author" required/>
-          </div>
-          <button type="submit" ng-disabled="!reviewForm.$valid" class="btn btn-primary">Submit</button>
-          <div ng-hide="reviewForm.$valid">Review form is not valid</div>
-        </form>
-      </div>
+      <product-description ng-show="panel.isTabSelected('description')"></product-description>
+      <product-specifications ng-show="panel.isTabSelected('specifications')"></product-specifications>
+      <product-reviews ng-show="panel.isTabSelected('reviews')"></product-reviews>
     </section>
     <button ng-disabled="!product.canPurchase" class="btn btn-primary"> Add to Cart </button>
     <span ng-hide="product.canPurchase">This product is sold out.</span>

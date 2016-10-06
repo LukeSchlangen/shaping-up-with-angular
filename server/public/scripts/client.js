@@ -21,11 +21,9 @@
   storeApp.controller('PanelController', function(){
     this.selectedTab = 'description';
     this.setTab = function(setTab){
-      console.log('tab is set to:', setTab);
       this.selectedTab = setTab;
     };
     this.isTabSelected = function(tab){
-      // console.log('Checking to see if ', this.selectedTab, ' === ', tab, 'it is: ', this.selectedTab === tab);
       return this.selectedTab === tab;
     }
   });
@@ -37,6 +35,34 @@
       product.reviews.push(this.review);
       this.review = {};
       reviewForm.$setPristine()
+    };
+  });
+
+  storeApp.directive('productTitle', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'views/product-title.html'
+    };
+  });
+
+  storeApp.directive('productDescription', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'views/product-description.html'
+    };
+  });
+
+  storeApp.directive('productSpecifications', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'views/product-specifications.html'
+    };
+  });
+
+  storeApp.directive('productReviews', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'views/product-reviews.html'
     };
   });
 
